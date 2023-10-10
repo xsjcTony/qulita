@@ -2,7 +2,7 @@ import type { JSX } from 'react'
 
 
 const Home = (): JSX.Element => (
-  <div className="text-blue absolute-center">
+  <div className="container">
     Home page with UnoCSS
   </div>
 )

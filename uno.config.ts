@@ -7,7 +7,18 @@ import type { UserShortcuts } from 'unocss'
 type NFTheme = typeof theme
 
 
-const theme = {} satisfies Theme
+const theme = {
+  container: {
+    center: true,
+    padding: {
+      DEFAULT: '80px',
+      sm: '10px'
+    },
+    maxWidth: {
+      sm: '1280px'
+    }
+  }
+} satisfies Theme
 
 
 const shortcuts = [
