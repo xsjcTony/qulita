@@ -1,5 +1,6 @@
 import '@app/global.scss'
 import { Inter } from 'next/font/google'
+import cn from '@utils/cn'
 import type { Metadata } from 'next'
 import type { JSX, ReactNode } from 'react'
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: ReactNode }): JSX.Element => (
   <html lang="en">
-    <body className={inter.className}>{children}</body>
+    <body className={cn('min-h-screen antialiased', inter.className)}>{children}</body>
   </html>
 )
 
