@@ -8,12 +8,15 @@ dependencies:
   '@unocss/reset':
     specifier: ^0.56.5
     version: 0.56.5
+  class-variance-authority:
+    specifier: ^0.7.0
+    version: 0.7.0
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
   next:
     specifier: ^13.5.4
-    version: 13.5.4(react-dom@18.2.0)(react@18.2.0)(sass@1.69.1)
+    version: 13.5.4(react-dom@18.2.0)(react@18.2.0)(sass@1.69.2)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -25,15 +28,18 @@ dependencies:
     version: 1.14.0
 
 devDependencies:
+  '@iconify/json':
+    specifier: ^2.2.127
+    version: 2.2.127
   '@types/node':
     specifier: ^20.8.4
     version: 20.8.4
   '@types/react':
-    specifier: ^18.2.27
-    version: 18.2.27
+    specifier: ^18.2.28
+    version: 18.2.28
   '@types/react-dom':
-    specifier: ^18.2.12
-    version: 18.2.12
+    specifier: ^18.2.13
+    version: 18.2.13
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.7.5
     version: 6.7.5(@typescript-eslint/parser@6.7.5)(eslint@8.51.0)(typescript@5.2.2)
@@ -46,9 +52,6 @@ devDependencies:
   '@unocss/postcss':
     specifier: ^0.56.5
     version: 0.56.5(postcss@8.4.31)
-  '@unocss/preset-rem-to-px':
-    specifier: ^0.56.5
-    version: 0.56.5
   '@unocss/preset-uno':
     specifier: ^0.56.5
     version: 0.56.5
@@ -77,8 +80,8 @@ devDependencies:
     specifier: ^8.4.31
     version: 8.4.31
   sass:
-    specifier: ^1.69.1
-    version: 1.69.1
+    specifier: ^1.69.2
+    version: 1.69.2
   typescript:
     specifier: ^5.2.2
     version: 5.2.2
@@ -374,6 +377,13 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
+  /@iconify/json@2.2.127:
+    resolution: {integrity: sha512-5Y3aIrpENV/nMWxXVC5AdmnOPJAor4tN32fw05qscGXuPAO7itAuZ1vskqmBkVv0d4vflDM0yQ9Ssz1JlImGeA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 1.1.1
+    dev: true
+
   /@iconify/types@2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: true
@@ -595,14 +605,14 @@ packages:
     resolution: {integrity: sha512-FbtmBWCcSa2J4zL781Zf1p5YUBXQomPEcep9QZCfRfQgTxz3pJWiDFLebohZ9fFntX5ibzOkSsrJ0TEew8cAog==}
     dev: true
 
-  /@types/react-dom@18.2.12:
-    resolution: {integrity: sha512-QWZuiA/7J/hPIGocXreCRbx7wyoeet9ooxfbSA+zbIWqyQEE7GMtRn4A37BdYyksnN+/NDnWgfxZH9UVGDw1hg==}
+  /@types/react-dom@18.2.13:
+    resolution: {integrity: sha512-eJIUv7rPP+EC45uNYp/ThhSpE16k22VJUknt5OLoH9tbXoi8bMhwLf5xRuWMywamNbWzhrSmU7IBJfPup1+3fw==}
     dependencies:
-      '@types/react': 18.2.27
+      '@types/react': 18.2.28
     dev: true
 
-  /@types/react@18.2.27:
-    resolution: {integrity: sha512-Wfv7B7FZiR2r3MIqbAlXoY1+tXm4bOqfz4oRr+nyXdBqapDBZ0l/IGcSlAfvxIHEEJjkPU0MYAc/BlFPOcrgLw==}
+  /@types/react@18.2.28:
+    resolution: {integrity: sha512-ad4aa/RaaJS3hyGz0BGegdnSRXQBkd1CCYDCdNjBPg90UUpLgo+WlJqb9fMYUxtehmzF3PJaTWqRZjko6BRzBg==}
     dependencies:
       '@types/prop-types': 15.7.7
       '@types/scheduler': 0.16.4
@@ -820,7 +830,7 @@ packages:
       '@unocss/core': 0.56.5
       '@unocss/reset': 0.56.5
       '@unocss/vite': 0.56.5(vite@4.4.9)
-      vite: 4.4.9(@types/node@20.8.4)(sass@1.69.1)
+      vite: 4.4.9(@types/node@20.8.4)(sass@1.69.2)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -938,12 +948,6 @@ packages:
       '@unocss/rule-utils': 0.56.5
     dev: true
 
-  /@unocss/preset-rem-to-px@0.56.5:
-    resolution: {integrity: sha512-TTfujQYmGSjg1Zen0d2QipR3Z7ruQYz2zJR99PcmPCSVgLMROQhmfMoTR5DnPuNSs9OM66bTua8x5/JWEDYVXg==}
-    dependencies:
-      '@unocss/core': 0.56.5
-    dev: true
-
   /@unocss/preset-tagify@0.56.5:
     resolution: {integrity: sha512-ANtI7E92fuzF40MD/3V72myNqrcGNXAD3TjXHIxAPQP2F+DcYIl2TBPHVsGUt2Rc5Kid2kvvsWan6sRAQVGPng==}
     dependencies:
@@ -1042,7 +1046,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.3.1
       magic-string: 0.30.4
-      vite: 4.4.9(@types/node@20.8.4)(sass@1.69.1)
+      vite: 4.4.9(@types/node@20.8.4)(sass@1.69.2)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -1291,6 +1295,12 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.3
+
+  /class-variance-authority@0.7.0:
+    resolution: {integrity: sha512-jFI8IQw4hczaL4ALINxqLEXQbWcNjoSkloa4IaufXCJr6QawJyw7tuRysRsrE8w2p/4gGaxKIt/hX3qz/IbD1A==}
+    dependencies:
+      clsx: 2.0.0
+    dev: false
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
@@ -2596,7 +2606,7 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next@13.5.4(react-dom@18.2.0)(react@18.2.0)(sass@1.69.1):
+  /next@13.5.4(react-dom@18.2.0)(react@18.2.0)(sass@1.69.2):
     resolution: {integrity: sha512-+93un5S779gho8y9ASQhb/bTkQF17FNQOtXLKAj3lsNgltEcF0C5PMLLncDmH+8X1EnJH1kbqAERa29nRXqhjA==}
     engines: {node: '>=16.14.0'}
     hasBin: true
@@ -2618,7 +2628,7 @@ packages:
       postcss: 8.4.31
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      sass: 1.69.1
+      sass: 1.69.2
       styled-jsx: 5.1.1(react@18.2.0)
       watchpack: 2.4.0
     optionalDependencies:
@@ -3008,8 +3018,8 @@ packages:
       is-regex: 1.1.4
     dev: true
 
-  /sass@1.69.1:
-    resolution: {integrity: sha512-nc969GvTVz38oqKgYYVHM/Iq7Yl33IILy5uqaH2CWSiSUmRCvw+UR7tA3845Sp4BD5ykCUimvrT3k1EjTwpVUA==}
+  /sass@1.69.2:
+    resolution: {integrity: sha512-48lDtG/9OuSQZ9oNmJMUXI2QdCakAWrAGjpX/Fy6j4Og8dEAyE598x5GqCqnHkwV7+I5w8DJpqjm581q5HNh3w==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -3359,7 +3369,7 @@ packages:
       '@unocss/transformer-directives': 0.56.5
       '@unocss/transformer-variant-group': 0.56.5
       '@unocss/vite': 0.56.5(vite@4.4.9)
-      vite: 4.4.9(@types/node@20.8.4)(sass@1.69.1)
+      vite: 4.4.9(@types/node@20.8.4)(sass@1.69.2)
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -3377,7 +3387,7 @@ packages:
       punycode: 2.3.0
     dev: true
 
-  /vite@4.4.9(@types/node@20.8.4)(sass@1.69.1):
+  /vite@4.4.9(@types/node@20.8.4)(sass@1.69.2):
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -3409,7 +3419,7 @@ packages:
       esbuild: 0.18.20
       postcss: 8.4.31
       rollup: 3.29.4
-      sass: 1.69.1
+      sass: 1.69.2
     optionalDependencies:
       fsevents: 2.3.3
     dev: true

@@ -1,5 +1,4 @@
-import presetRemToPx from '@unocss/preset-rem-to-px'
-import { defineConfig, presetUno } from 'unocss'
+import { defineConfig, presetIcons, presetUno } from 'unocss'
 import type { Theme } from '@unocss/preset-uno'
 import type { UserShortcuts, ConfigBase } from 'unocss'
 
@@ -9,27 +8,16 @@ const extendTheme: ConfigBase<Theme>['extendTheme'] = theme => ({
   container: {
     center: true,
     padding: {
-      DEFAULT: '80px',
-      sm: '10px'
+      DEFAULT: '0.625rem',
+      sm: '0.625rem',
+      md: '5rem',
+      lg: '5rem',
+      xl: '5rem',
+      '2xl': '5rem'
     },
     maxWidth: {
       sm: '1280px'
     }
-  },
-  fontSize: {
-    xs: ['12px', '16px'],
-    sm: ['14px', '20px'],
-    base: ['16px', '24px'],
-    lg: ['18px', '28px'],
-    xl: ['20px', '28px'],
-    '2xl': ['24px', '32px'],
-    '3xl': ['30px', '36px'],
-    '4xl': ['36px', '40px'],
-    '5xl': ['48px', '1'],
-    '6xl': ['60px', '1'],
-    '7xl': ['72px', '1'],
-    '8xl': ['96px', '1'],
-    '9xl': ['128px', '1']
   },
   colors: {
     ...theme.colors,
@@ -105,8 +93,12 @@ const shortcuts = [
 export default defineConfig<Theme>({
   presets: [
     presetUno(),
-    // this will convert rem to px, e.g. `p-1` now means `padding: 1px` instead of `0.25rem`(=4px)
-    presetRemToPx({ baseFontSize: 4 })
+    presetIcons({
+      extraProperties: {
+        display: 'inline-block',
+        'vertical-align': 'middle'
+      }
+    })
   ],
   shortcuts,
   extendTheme
