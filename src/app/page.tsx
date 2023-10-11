@@ -6,8 +6,8 @@ import type { JSX } from 'react'
 
 const Home = (): JSX.Element => (
   <>
-    <div className="mb-12 flex-center flex-col pt-28 text-center container sm:pt-40">
-      <div className="mb-4 flex-center gap-x-2 overflow-hidden border border-gray-200 rounded-full bg-white px-7 py-2 text-sm font-semibold text-gray-700 shadow-md backdrop-blur transition-all @hover:border-gray-300 @hover:bg-white/50">
+    <div className="flex-center mb-12 flex-col pt-28 text-center container sm:pt-40">
+      <div className="flex-center mb-4 gap-x-2 overflow-hidden border border-gray-200 rounded-full bg-white px-7 py-2 text-sm font-semibold text-gray-700 shadow-md backdrop-blur transition-all @hover:border-gray-300 @hover:bg-white/50">
         Qulita is now public!
       </div>
 
@@ -54,6 +54,7 @@ const Home = (): JSX.Element => (
                 alt="product preview"
                 className="rounded-md bg-white p-2 shadow-2xl ring-1 ring-gray-900/10 md:p-20 sm:p-8"
                 height={866}
+                quality={100}
                 src="/dashboard-preview.jpg"
                 width={1364}
               />
@@ -75,9 +76,9 @@ const Home = (): JSX.Element => (
         </div>
       </div>
 
-      <ol className="mb-8 pt-8 md:flex md:gap-x-12 space-y-4 md:space-y-0">
+      <ol className="mb-8 pt-8 md:flex md:gap-x-12 space-y-4 md:px-6 md:space-y-0">
         <li className="md:flex-1">
-          <div className="flex flex-col gap-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
+          <div className="flex flex-col gap-y-2 border-l-4 border-zinc-300 px-4 py-2 md:border-l-0 md:border-t-2 md:px-0 md:pb-0 md:pt-4">
             <span className="text-sm font-medium text-purple-600">Step 1</span>
             <span className="mb-2 text-xl font-semibold">Sign up for an account</span>
             <span className="text-zinc-700">
@@ -90,7 +91,7 @@ const Home = (): JSX.Element => (
           </div>
         </li>
         <li className="md:flex-1">
-          <div className="flex flex-col gap-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
+          <div className="flex flex-col gap-y-2 border-l-4 border-zinc-300 px-4 py-2 md:border-l-0 md:border-t-2 md:px-0 md:pb-0 md:pt-4">
             <span className="text-sm font-medium text-purple-600">Step 2</span>
             <span className="mb-2 text-xl font-semibold">Upload your PDF file</span>
             <span className="text-zinc-700">
@@ -99,7 +100,7 @@ const Home = (): JSX.Element => (
           </div>
         </li>
         <li className="md:flex-1">
-          <div className="flex flex-col gap-y-2 border-l-4 border-zinc-300 py-2 pl-4 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pt-4">
+          <div className="flex flex-col gap-y-2 border-l-4 border-zinc-300 px-4 py-2 md:border-l-0 md:border-t-2 md:px-0 md:pb-0 md:pt-4">
             <span className="text-sm font-medium text-purple-600">Step 3</span>
             <span className="mb-2 text-xl font-semibold">Start asking questions</span>
             <span className="text-zinc-700">
@@ -108,6 +109,21 @@ const Home = (): JSX.Element => (
           </div>
         </li>
       </ol>
+
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="mt-16 flow-root sm:mt-24">
+          <div className="rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 ring-inset -m-2 lg:rounded-2xl lg:p-4 lg:-m-4">
+            <Image
+              alt="uploading preview"
+              className="rounded-md bg-white p-2 shadow-2xl ring-1 ring-gray-900/10 md:p-20 sm:p-8"
+              height={732}
+              quality={100}
+              src="/file-upload-preview.jpg"
+              width={1419}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </>
 )

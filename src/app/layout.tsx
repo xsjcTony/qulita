@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: ReactNode }): JSX.Element => (
   <html lang="en">
-    <body className={cn('min-h-screen antialiased', inter.className)}>{children}</body>
+    <body className={cn('min-h-screen antialiased grainy', inter.className)}>{children}</body>
   </html>
 )
 
