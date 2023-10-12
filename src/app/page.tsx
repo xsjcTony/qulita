@@ -6,8 +6,8 @@ import type { JSX } from 'react'
 
 const Home = (): JSX.Element => (
   <>
-    <div className="flex-center mb-12 flex-col pt-28 text-center container sm:pt-40">
-      <div className="flex-center mb-4 gap-x-2 overflow-hidden border border-gray-200 rounded-full bg-white px-7 py-2 text-sm font-semibold text-gray-700 shadow-md backdrop-blur transition-all @hover:border-gray-300 @hover:bg-white/50">
+    <div className="mb-12 flex-center flex-col pt-28 text-center container sm:pt-40">
+      <div className="mb-4 flex-center gap-x-2 overflow-hidden border border-gray-200 rounded-full bg-white px-7 py-2 text-sm font-semibold text-gray-700 shadow-md backdrop-blur transition-all @hover:border-gray-300 @hover:bg-white/50">
         Qulita is now public!
       </div>
 

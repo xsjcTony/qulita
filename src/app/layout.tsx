@@ -1,5 +1,6 @@
 import '@app/global.scss'
 import { Inter } from 'next/font/google'
+import NavBar from '@/components/NavBar'
 import cn from '@utils/cn'
 import type { Metadata } from 'next'
 import type { JSX, ReactNode } from 'react'
@@ -15,7 +16,10 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: ReactNode }): JSX.Element => (
   <html lang="en">
-    <body className={cn('min-h-screen antialiased grainy', inter.className)}>{children}</body>
+    <body className={cn('min-h-screen antialiased bg-grainy', inter.className)}>
+      <NavBar />
+      {children}
+    </body>
   </html>
 )
 
