@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import NavBar from '@/components/NavBar'
 import cn from '@utils/cn'
 import type { Metadata } from 'next'
-import type { JSX, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 
-const RootLayout = ({ children }: { children: ReactNode }): JSX.Element => (
+const RootLayout = ({ children }: { children: ReactNode }): ReactNode => (
   <html lang="en">
     <body className={cn('min-h-screen antialiased bg-grainy', inter.className)}>
       <NavBar />

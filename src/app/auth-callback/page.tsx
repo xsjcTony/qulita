@@ -1,15 +1,15 @@
 import { useRouter, useSearchParams } from 'next/navigation'
-import type { JSX } from 'react'
+import type { ReactNode } from 'react'
 
 
-const AuthCallback = (): JSX.Element => {
+const AuthCallback = (): ReactNode => {
 
   const router = useRouter()
 
   const searchParams = useSearchParams()
   const origin = searchParams.get('origin')
 
-
+  return null
 }
 
 

@@ -1,9 +1,9 @@
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { redirect } from 'next/navigation'
-import type { JSX } from 'react'
+import type { ReactNode } from 'react'
 
 
-const Dashboard = (): JSX.Element => {
+const Dashboard = (): ReactNode => {
 
   const { getUser, isAuthenticated } = getKindeServerSession()
 
@@ -16,9 +16,9 @@ const Dashboard = (): JSX.Element => {
 
 
   return (
-    <div>
-      {JSON.stringify(user)}
-    </div>
+    <pre>
+      {JSON.stringify(user, null, 2)}
+    </pre>
   )
 }
 

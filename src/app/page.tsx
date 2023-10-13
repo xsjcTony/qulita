@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { buttonVariants } from '@/components/shadcn-ui/button'
-import type { JSX } from 'react'
+import type { ReactNode } from 'react'
 
 
-const Home = (): JSX.Element => (
+const Home = (): ReactNode => (
   <>
     <div className="mb-12 flex-center flex-col pt-28 text-center container sm:pt-40">
       <div className="mb-4 flex-center gap-x-2 overflow-hidden border border-gray-200 rounded-full bg-white px-7 py-2 text-sm font-semibold text-gray-700 shadow-md backdrop-blur transition-all @hover:border-gray-300 @hover:bg-white/50">
