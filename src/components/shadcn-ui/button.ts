@@ -1,7 +1,8 @@
 import { cva } from 'class-variance-authority'
+import cn from '@utils/cn'
 
 
-export const buttonVariants = cva(
+const buttonStyles = cva(
   'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
@@ -30,3 +31,7 @@ export const buttonVariants = cva(
     }
   }
 )
+
+
+export const buttonVariants = (...args: Parameters<typeof buttonStyles>): string =>
+  cn(buttonStyles(...args))

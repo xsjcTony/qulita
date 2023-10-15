@@ -1,6 +1,6 @@
+import { buttonVariants } from '@components/shadcn-ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
-import { buttonVariants } from '@/components/shadcn-ui/button'
 import type { ReactNode } from 'react'
 
 

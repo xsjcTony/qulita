@@ -1,6 +1,7 @@
 import '@app/global.scss'
+import NavBar from '@components/NavBar'
+import Providers from '@components/Providers'
 import { Inter } from 'next/font/google'
-import NavBar from '@/components/NavBar'
 import cn from '@utils/cn'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
@@ -18,7 +19,7 @@ const RootLayout = ({ children }: { children: ReactNode }): ReactNode => (
   <html lang="en">
     <body className={cn('min-h-screen antialiased bg-grainy', inter.className)}>
       <NavBar />
-      {children}
+      <Providers>{children}</Providers>
     </body>
   </html>
 )

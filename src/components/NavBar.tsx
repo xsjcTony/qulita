@@ -1,6 +1,6 @@
+import { buttonVariants } from '@components/shadcn-ui/button'
 import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/server'
 import Link from 'next/link'
-import { buttonVariants } from '@/components/shadcn-ui/button'
 import type { ReactNode } from 'react'
 
 
