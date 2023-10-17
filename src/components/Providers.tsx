@@ -2,23 +2,18 @@
 
 'use client'
 
+
 // eslint-disable-next-line import/named
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { httpBatchLink } from '@trpc/client'
 import { useState } from 'react'
-import { trpc } from '@app/_trpc/client'
+import trpc from '@/trpc/client'
+import { default as _trpcClient } from '@/trpc/client/client'
 import type { ReactNode } from 'react'
 
 
 const Providers = ({ children }: { children: ReactNode }): ReactNode => {
   const [queryClient] = useState(() => new QueryClient())
-  const [trpcClient] = useState(() => trpc.createClient({
-    links: [
-      httpBatchLink({
-        url: `${process.env.NEXT_PUBLIC_DOMAIN}/api/trpc`
-      })
-    ]
-  }))
+  const [trpcClient] = useState(() => _trpcClient)
 
 
   return (

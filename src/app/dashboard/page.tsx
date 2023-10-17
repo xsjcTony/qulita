@@ -1,9 +1,9 @@
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { redirect } from 'next/navigation'
-import type { ReactNode } from 'react'
+import type { JSX } from 'react'
 
 
-const Dashboard = (): ReactNode => {
+const Dashboard = (): JSX.Element => {
 
   const { getUser, isAuthenticated } = getKindeServerSession()
 

@@ -1,5 +1,5 @@
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch'
-import { appRouter } from '@/trpc'
+import { appRouter } from '@/trpc/server/router'
 import type { NextRequest } from 'next/server'
 
 

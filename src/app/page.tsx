@@ -1,10 +1,10 @@
-import { buttonVariants } from '@components/shadcn-ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
-import type { ReactNode } from 'react'
+import { buttonVariants } from '@components/shadcn-ui/button'
+import type { JSX } from 'react'
 
 
-const Home = (): ReactNode => (
+const Home = (): JSX.Element => (
   <>
     <div className="mb-12 flex-center flex-col pt-28 text-center container sm:pt-40">
       <div className="mb-4 flex-center gap-x-2 overflow-hidden border border-gray-200 rounded-full bg-white px-7 py-2 text-sm font-semibold text-gray-700 shadow-md backdrop-blur transition-all @hover:border-gray-300 @hover:bg-white/50">
@@ -51,6 +51,7 @@ const Home = (): ReactNode => (
           <div className="mt-16 flow-root sm:mt-24">
             <div className="rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 ring-inset -m-2 lg:rounded-2xl lg:p-4 lg:-m-4">
               <Image
+                priority
                 alt="product preview"
                 className="rounded-md bg-white p-2 shadow-2xl ring-1 ring-gray-900/10 md:p-20 sm:p-8"
                 height={866}
