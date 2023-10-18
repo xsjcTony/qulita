@@ -4,11 +4,15 @@ import { publicProcedure, router } from '@/trpc/server/trpc'
 
 
 export const appRouter = router({
-  authCallback: publicProcedure.query(() => {
+  authCallback: publicProcedure.query(async () => {
     const { getUser, isAuthenticated } = getKindeServerSession()
 
     if (!isAuthenticated())
       throw new TRPCError({ code: 'UNAUTHORIZED' })
+
+
+    // const dbUser = await db
+
 
     return { success: true }
   })
