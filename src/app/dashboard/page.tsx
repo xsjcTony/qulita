@@ -1,26 +1,29 @@
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { redirect } from 'next/navigation'
+import db from '@/database'
+import Dashboard from '@app/dashboard/views/Dashboard'
 import type { JSX } from 'react'
 
 
-const Dashboard = (): JSX.Element => {
+const DashboardPage = async (): Promise<JSX.Element> => {
 
   const { getUser, isAuthenticated } = getKindeServerSession()
+  const user = getUser()
 
-
-  if (!isAuthenticated())
+  if (!isAuthenticated() || !user.id)
     redirect('/auth-callback?origin=dashboard')
 
 
-  const user = getUser()
+  const dbUser = await db.user.findFirst({
+    where: { id: user.id }
+  })
+
+  if (!dbUser)
+    redirect('/auth-callback?origin=dashboard')
 
 
-  return (
-    <pre>
-      {JSON.stringify(user, null, 2)}
-    </pre>
-  )
+  return <Dashboard />
 }
 
 
-export default Dashboard
+export default DashboardPage

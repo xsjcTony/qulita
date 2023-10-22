@@ -4,7 +4,7 @@ import { buttonVariants } from '@components/shadcn-ui/button'
 import type { JSX } from 'react'
 
 
-const Home = (): JSX.Element => (
+const RootPage = (): JSX.Element => (
   <>
     <div className="mb-12 flex-center flex-col pt-28 text-center container sm:pt-40">
       <div className="mb-4 flex-center gap-x-2 overflow-hidden border border-gray-200 rounded-full bg-white px-7 py-2 text-sm font-semibold text-gray-700 shadow-md backdrop-blur transition-all @hover:border-gray-300 @hover:bg-white/50">
@@ -12,11 +12,11 @@ const Home = (): JSX.Element => (
       </div>
 
       <h1 className="mb-5 max-w-4xl text-5xl font-bold lg:text-7xl md:text-6xl">
-        Chat with your <span className="text-purple-600">documents</span> in seconds.
+        Chat with your <span className="text-purple-600">documents</span> in seconds
       </h1>
 
       <p className="mb-5 max-w-prose text-zinc-700 sm:text-lg">
-        Qulita allows you to have conversations with any PDF document. Simply upload your file and start asking questions right away.
+        Qulita allows you to have conversations with any PDF document. Simply upload your file and start asking questions right away
       </p>
 
       <Link className={buttonVariants({ size: 'lg' })} href="/dashboard" target="_blank">
@@ -72,7 +72,7 @@ const Home = (): JSX.Element => (
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="texy-gray-900 mb-4 text-4xl font-bold sm:text-5xl">Start chatting in minutes</h2>
           <p className="text-lg text-gray-600">
-            Chatting to your PDF files has never been easier than with Qulita.
+            Chatting to your PDF files has never been easier than with Qulita
           </p>
         </div>
       </div>
@@ -96,7 +96,7 @@ const Home = (): JSX.Element => (
             <span className="text-sm font-medium text-purple-600">Step 2</span>
             <span className="mb-2 text-xl font-semibold">Upload your PDF file</span>
             <span className="text-zinc-700">
-              We&apos;ll process your file and make it ready for you to chat with.
+              We&apos;ll process your file and make it ready for you to chat with
             </span>
           </div>
         </li>
@@ -105,7 +105,7 @@ const Home = (): JSX.Element => (
             <span className="text-sm font-medium text-purple-600">Step 3</span>
             <span className="mb-2 text-xl font-semibold">Start asking questions</span>
             <span className="text-zinc-700">
-              It&apos;s that simple. Try out Qulita today - it really takes less than a minute.
+              It&apos;s that simple. Try out Qulita today - it really takes less than a minute
             </span>
           </div>
         </li>
@@ -130,4 +130,4 @@ const Home = (): JSX.Element => (
 )
 
 
-export default Home
+export default RootPage
