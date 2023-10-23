@@ -1,3 +1,4 @@
+import { h } from '@unocss/preset-mini/utils'
 import { defineConfig, presetIcons, presetUno } from 'unocss'
 import type { Theme } from '@unocss/preset-uno'
 import type { UserShortcuts, ConfigBase } from 'unocss'
@@ -66,7 +67,10 @@ const extendTheme: ConfigBase<Theme>['extendTheme'] = theme => ({
     keyframes: {
       ...theme.animation?.keyframes,
       'accordion-down': 'from{height:0}to{height:var(--radix-accordion-content-height);',
-      'accordion-up': 'from{height:var(--radix-accordion-content-height)}to{height: 0}'
+      'accordion-up': 'from{height:var(--radix-accordion-content-height)}to{height: 0}',
+
+      enter: '{from{opacity:var(--una-enter-opacity,1);transform:translate3d(var(--una-enter-translate-x,0),var(--una-enter-translate-y,0),0) scale3d(var(--una-enter-scale,1),var(--una-enter-scale,1),var(--una-enter-scale,1)) rotate(var(--una-enter-rotate,0))}}',
+      exit: '{to{opacity:var(--una-exit-opacity,1);transform:translate3d(var(--una-exit-translate-x,0),var(--una-exit-translate-y,0),0) scale3d(var(--una-exit-scale,1),var(--una-exit-scale,1),var(--una-exit-scale,1)) rotate(var(--una-exit-rotate,0))}}'
     },
     durations: {
       ...theme.animation?.durations,
@@ -102,5 +106,29 @@ export default defineConfig<Theme>({
     })
   ],
   shortcuts,
-  extendTheme
+  extendTheme,
+  rules: [
+    [/^animate-in$/, (_, { theme }) => ({
+      '@keyframes enter': theme.animation?.keyframes?.enter,
+      'animation-name': 'enter',
+      'animation-duration': theme.duration?.DEFAULT,
+      '--una-enter-opacity': 'initial',
+      '--una-enter-scale': 'initial',
+      '--una-enter-rotate': 'initial',
+      '--una-enter-translate-x': 'initial',
+      '--una-enter-translate-y': 'initial'
+    })],
+    [/^animate-out$/, (_, { theme }) => ({
+      '@keyframes exit': theme.animation?.keyframes?.exit,
+      'animation-name': 'exit',
+      'animation-duration': theme.duration?.DEFAULT,
+      '--una-exit-opacity': 'initial',
+      '--una-exit-scale': 'initial',
+      '--una-exit-rotate': 'initial',
+      '--una-exit-translate-x': 'initial',
+      '--una-exit-translate-y': 'initial'
+    })],
+    ['fade-in', { '--una-enter-opacity': '0%' }],
+    [/^fade-in-(\d+)$/, ([, d]) => ({ '--una-enter-opacity': h.bracket.percent.cssvar(d!) })]
+  ]
 })

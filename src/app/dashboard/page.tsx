@@ -11,7 +11,7 @@ const DashboardPage = async (): Promise<JSX.Element> => {
   const user = getUser()
 
   if (!isAuthenticated() || !user.id)
-    redirect('/auth-callback?origin=dashboard')
+    redirect('/')
 
 
   const dbUser = await db.user.findFirst({

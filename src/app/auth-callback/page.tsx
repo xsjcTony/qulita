@@ -2,7 +2,6 @@
 
 
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
 import trpc from '@/trpc/client'
 import type { Route } from 'next'
 import type { JSX } from 'react'
@@ -22,15 +21,11 @@ const AuthCallbackPage = (): JSX.Element => {
   })
 
 
-  useEffect(() => {
-    data?.success && router.replace(`/${origin ?? 'dashboard'}` as Route)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data])
+  if (data?.success)
+    router.replace(`/${origin ?? 'dashboard'}` as Route)
 
-  useEffect(() => {
-    error?.data?.code === 'UNAUTHORIZED' && router.replace('/api/auth/login')
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [error])
+  if (error?.data?.code === 'UNAUTHORIZED')
+    router.replace('/')
 
 
   return (
