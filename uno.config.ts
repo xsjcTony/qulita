@@ -143,7 +143,18 @@ export default defineConfig<Theme>({
   shortcuts,
   extendTheme,
   rules: [
-    [/^fade-in(?:-(\d+))?$/, ([, d]) => ({ '--una-enter-opacity': h.bracket.percent.cssvar(d || '0') })],
-    [/^fade-out(?:-(\d+))?$/, ([, d]) => ({ '--una-exit-opacity': h.bracket.percent.cssvar(d || '0') })]
+    [/^fade-in(?:-(\d+))?$/, ([, op]) => ({ '--una-enter-opacity': h.percent.cssvar(op || '0') })],
+    [/^fade-out(?:-(\d+))?$/, ([, op]) => ({ '--una-exit-opacity': h.bracket.percent.cssvar(op || '0') })],
+
+    [/^zoom-in(?:-(\d+))?$/, ([, scale]) => ({ '--una-enter-scale': h.bracket.percent.fraction.cssvar(scale || '0') })],
+    [/^zoom-out(?:-(\d+))?$/, ([, scale]) => ({ '--una-exit-scale': h.bracket.percent.fraction.cssvar(scale || '0') })],
+
+    [/^spin-in(?:-(\d+))?$/, ([, deg]) => ({ '--una-enter-rotate': h.bracket.cssvar.degree(deg || '30') })],
+    [/^spin-out(?:-(\d+))?$/, ([, deg]) => ({ '--una-exit-rotate': h.bracket.cssvar.degree(deg || '30') })],
+
+    [/^slide-in-from-(top|bottom|left|right)(?:-(.+))?$/, ([, dir, val]) => {
+      if (true) {}
+      return {}
+    }]
   ]
 })
