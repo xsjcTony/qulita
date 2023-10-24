@@ -367,6 +367,7 @@ module.exports = {
       'error',
       {
         count: 2,
+        exactCount: true,
         considerComments: true
       }
     ],
