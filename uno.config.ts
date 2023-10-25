@@ -143,18 +143,51 @@ export default defineConfig<Theme>({
   shortcuts,
   extendTheme,
   rules: [
-    [/^fade-in(?:-(\d+))?$/, ([, op]) => ({ '--una-enter-opacity': h.percent.cssvar(op || '0') })],
-    [/^fade-out(?:-(\d+))?$/, ([, op]) => ({ '--una-exit-opacity': h.bracket.percent.cssvar(op || '0') })],
+    [/^fade-in(?:-(.+))?$/, ([, op]) => ({ '--una-enter-opacity': h.bracket.cssvar.percent(op || '0') })],
+    [/^fade-out(?:-(.+))?$/, ([, op]) => ({ '--una-exit-opacity': h.bracket.cssvar.percent(op || '0') })],
 
-    [/^zoom-in(?:-(\d+))?$/, ([, scale]) => ({ '--una-enter-scale': h.bracket.percent.fraction.cssvar(scale || '0') })],
-    [/^zoom-out(?:-(\d+))?$/, ([, scale]) => ({ '--una-exit-scale': h.bracket.percent.fraction.cssvar(scale || '0') })],
+    [/^zoom-in(?:-(.+))?$/, ([, scale]) => ({ '--una-enter-scale': h.bracket.cssvar.fraction.percent(scale || '0') })],
+    [/^zoom-out(?:-(.+))?$/, ([, scale]) => ({ '--una-exit-scale': h.bracket.cssvar.fraction.percent(scale || '0') })],
 
-    [/^spin-in(?:-(\d+))?$/, ([, deg]) => ({ '--una-enter-rotate': h.bracket.cssvar.degree(deg || '30') })],
-    [/^spin-out(?:-(\d+))?$/, ([, deg]) => ({ '--una-exit-rotate': h.bracket.cssvar.degree(deg || '30') })],
+    [/^spin-in(?:-(.+))?$/, ([, deg]) => ({ '--una-enter-rotate': h.bracket.cssvar.degree(deg || '30') })],
+    [/^spin-out(?:-(.+))?$/, ([, deg]) => ({ '--una-exit-rotate': h.bracket.cssvar.degree(deg || '30') })],
 
     [/^slide-in-from-(top|bottom|left|right)(?:-(.+))?$/, ([, dir, val]) => {
-      if (true) {}
-      return {}
+      const value = h.bracket.cssvar.fraction.rem(val || '100%')
+
+      if (!value) return
+
+      switch (dir) {
+        case 'top':
+          return { '--una-enter-translate-y': `-${value}` }
+        case 'bottom':
+          return { '--una-enter-translate-y': value }
+        case 'left':
+          return { '--una-enter-translate-x': `-${value}` }
+        case 'right':
+          return { '--una-enter-translate-x': value }
+        default:
+          return
+      }
+    }],
+
+    [/^slide-out-to-(top|bottom|left|right)(?:-(.+))?$/, ([, dir, val]) => {
+      const value = h.bracket.cssvar.fraction.rem(val || '100%')
+
+      if (!value) return
+
+      switch (dir) {
+        case 'top':
+          return { '--una-exit-translate-y': `-${value}` }
+        case 'bottom':
+          return { '--una-exit-translate-y': value }
+        case 'left':
+          return { '--una-exit-translate-x': `-${value}` }
+        case 'right':
+          return { '--una-exit-translate-x': value }
+        default:
+          return
+      }
     }]
   ]
 })
