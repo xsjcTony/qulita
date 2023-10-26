@@ -109,7 +109,8 @@ const shortcuts = [
         '--una-enter-translate-x': 'initial',
         '--una-enter-translate-y': 'initial'
       }
-    ]
+    ],
+    { autocomplete: 'animate-in' }
   ],
   [
     /^animate-out$/,
@@ -124,7 +125,8 @@ const shortcuts = [
         '--una-exit-translate-x': 'initial',
         '--una-exit-translate-y': 'initial'
       }
-    ]
+    ],
+    { autocomplete: 'animate-out' }
   ]
 ] satisfies UserShortcuts<Theme>
 
@@ -146,33 +148,54 @@ export default defineConfig<Theme>({
     utilities: 2
   },
   rules: [
-    [/^fade-in(?:-(.+))?$/, ([, op]) => ({ '--una-enter-opacity': h.bracket.cssvar.percent(op || '0') })],
+    [
+      /^fade-in(?:-(.+))?$/,
+      ([, op]) => ({ '--una-enter-opacity': h.bracket.cssvar.percent(op || '0') }),
+      { autocomplete: 'fade-(in|out)-<percent>' }
+    ],
     [/^fade-out(?:-(.+))?$/, ([, op]) => ({ '--una-exit-opacity': h.bracket.cssvar.percent(op || '0') })],
 
-    [/^zoom-in(?:-(.+))?$/, ([, scale]) => ({ '--una-enter-scale': h.bracket.cssvar.fraction.percent(scale || '0') })],
+    [
+      /^zoom-in(?:-(.+))?$/,
+      ([, scale]) => ({ '--una-enter-scale': h.bracket.cssvar.fraction.percent(scale || '0') }),
+      { autocomplete: 'zoom-(in|out)-<percent>' }
+    ],
     [/^zoom-out(?:-(.+))?$/, ([, scale]) => ({ '--una-exit-scale': h.bracket.cssvar.fraction.percent(scale || '0') })],
 
-    [/^spin-in(?:-(.+))?$/, ([, deg]) => ({ '--una-enter-rotate': h.bracket.cssvar.degree(deg || '30') })],
+    [
+      /^spin-in(?:-(.+))?$/,
+      ([, deg]) => ({ '--una-enter-rotate': h.bracket.cssvar.degree(deg || '30') }),
+      { autocomplete: 'spin-(in|out)-<percent>' }
+    ],
     [/^spin-out(?:-(.+))?$/, ([, deg]) => ({ '--una-exit-rotate': h.bracket.cssvar.degree(deg || '30') })],
 
-    [/^slide-in-from-(top|bottom|left|right)(?:-(.+))?$/, ([, dir, val]) => {
-      const value = h.bracket.cssvar.fraction.rem(val || '100%')
+    [
+      /^slide-in-from-(top|bottom|left|right)(?:-(.+))?$/,
+      ([, dir, val]) => {
+        const value = h.bracket.cssvar.fraction.rem(val || '100%')
 
-      if (!value) return
+        if (!value) return
 
-      switch (dir) {
-        case 'top':
-          return { '--una-enter-translate-y': `-${value}` }
-        case 'bottom':
-          return { '--una-enter-translate-y': value }
-        case 'left':
-          return { '--una-enter-translate-x': `-${value}` }
-        case 'right':
-          return { '--una-enter-translate-x': value }
-        default:
-          return
+        switch (dir) {
+          case 'top':
+            return { '--una-enter-translate-y': `-${value}` }
+          case 'bottom':
+            return { '--una-enter-translate-y': value }
+          case 'left':
+            return { '--una-enter-translate-x': `-${value}` }
+          case 'right':
+            return { '--una-enter-translate-x': value }
+          default:
+            return
+        }
+      },
+      {
+        autocomplete: [
+          'slide-in-(from|to)-(top|bottom|left|right)-<percent>',
+          'slide-in-(from|to)-(top|bottom|left|right)-full'
+        ]
       }
-    }],
+    ],
 
     [/^slide-out-to-(top|bottom|left|right)(?:-(.+))?$/, ([, dir, val]) => {
       const value = h.bracket.cssvar.fraction.rem(val || '100%')
