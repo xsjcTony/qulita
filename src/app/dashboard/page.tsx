@@ -8,9 +8,9 @@ import type { JSX } from 'react'
 const DashboardPage = async (): Promise<JSX.Element> => {
 
   const { getUser, isAuthenticated } = getKindeServerSession()
-  const user = getUser()
+  const user = await getUser()
 
-  if (!isAuthenticated() || !user.id)
+  if (!isAuthenticated() || !user)
     redirect('/')
 
 

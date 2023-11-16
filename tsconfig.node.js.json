@@ -7,7 +7,7 @@
   },
   "extends": "./tsconfig.json",
   "include": [
-    ".eslintrc.js",
+    "eslint.config.js",
     "next.config.mjs",
     "postcss.config.js"
   ]
